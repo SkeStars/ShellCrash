@@ -1,4 +1,4 @@
-#DustinWin-ruleset全分组规则
+#DustinWin-ruleset无广告精简规则
 proxy-groups:
   - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 👑 高级节点, 📉 省流节点, {providers_tags}]}
   - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 👑 高级节点, 📉 省流节点, {providers_tags}]}
@@ -8,17 +8,12 @@ proxy-groups:
   - {name: 🪟 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🇬 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-  - {name: 🌍 国外媒体, type: select, proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 👑 高级节点, 📉 省流节点, {providers_tags}]}
-  - {name: 🎮 游戏平台, type: select, proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 👑 高级节点, 📉 省流节点, {providers_tags}]}
   - {name: 🛡️ 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🀄️ 直连 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🧱 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
   - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 👑 高级节点, 📉 省流节点, {providers_tags}]}
   - {name: 🔒 私有网络, type: select, proxies: [🎯 全球直连], hidden: true}
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 👑 高级节点, 📉 省流节点, {providers_tags}, 🎯 全球直连]}
-  - {name: 🛑 广告域名, type: select, proxies: [🔴 全球拦截, 🟢 全球绕过]}
-  - {name: 🔴 全球拦截, type: select, proxies: [REJECT], hidden: true}
-  - {name: 🟢 全球绕过, type: select, proxies: [PASS], hidden: true}
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT], hidden: true}
 
   - {name: 👑 高级节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "(?i)(专线|专用|高级|直连|急速|高倍率|游戏|game|IEPL|IPLC|AIA|CTM|CC|AC)"}
@@ -36,14 +31,6 @@ rule-providers:
     format: mrs
     path: ./rules/private.mrs
     url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/private.mrs"
-    interval: 86400
-
-  ads:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/ads.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/ads.mrs"
     interval: 86400
 
   trackerslist:
@@ -86,22 +73,6 @@ rule-providers:
     url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/games-cn.mrs"
     interval: 86400
 
-  media:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/media.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/media.mrs"
-    interval: 86400
-
-  games:
-    type: http
-    behavior: domain
-    format: mrs
-    path: ./rules/games.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/games.mrs"
-    interval: 86400
-
   ai:
     type: http
     behavior: domain
@@ -131,7 +102,7 @@ rule-providers:
     behavior: domain
     format: mrs
     path: ./rules/cn.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/cn.mrs"
+    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/cn-lite.mrs"
     interval: 86400
 
   privateip:
@@ -150,22 +121,6 @@ rule-providers:
     url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/cnip.mrs"
     interval: 86400
 
-  mediaip:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    path: ./rules/mediaip.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/mediaip.mrs"
-    interval: 86400
-
-  gamesip:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    path: ./rules/gamesip.mrs
-    url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/gamesip.mrs"
-    interval: 86400
-
   telegramip:
     type: http
     behavior: ipcidr
@@ -176,21 +131,16 @@ rule-providers:
 
 rules:
   - RULE-SET,private,🔒 私有网络
-  - RULE-SET,ads,🛑 广告域名
   - RULE-SET,trackerslist,📋 Trackerslist
   - RULE-SET,microsoft-cn,🪟 微软服务
   - RULE-SET,apple-cn,🍎 苹果服务
   - RULE-SET,google-cn,🇬 谷歌服务
   - RULE-SET,games-cn,🎮 游戏服务
-  - RULE-SET,media,🌍 国外媒体
-  - RULE-SET,games,🎮 游戏平台
   - RULE-SET,ai,🤖 AI 平台
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,proxy,🧱 代理域名
   - RULE-SET,cn,🛡️ 直连域名
   - RULE-SET,privateip,🔒 私有网络,no-resolve
   - RULE-SET,cnip,🀄️ 直连 IP
-  - RULE-SET,mediaip,🌍 国外媒体
-  - RULE-SET,gamesip,🎮 游戏平台
   - RULE-SET,telegramip,📲 电报消息,no-resolve
   - MATCH,🐟 漏网之鱼
